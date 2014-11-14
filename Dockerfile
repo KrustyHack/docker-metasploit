@@ -17,11 +17,11 @@ RUN apt-get -y install git build-essential libreadline-dev libssl-dev libpq5 lib
 RUN gem install wirble sqlite3 bundler
 
 RUN cd /opt/ && git clone git://github.com/rapid7/metasploit-framework.git && cd metasploit-framework/ && bundle install
-RUN bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/bin/$MSF;done'
+RUN cd /opt/metasploit-framework && bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/bin/$MSF;done'
 ADD files/metasploit/database.yml /opt/metasploit-framework/config/database.yml
-RUN bash -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile
-source /etc/profile"
+RUN bash -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 
+RUN /etc/init.d/postgresql start
 RUN psql -c "CREATE USER msf WITH PASSWORD 'msf';"
 RUN psql -c "CREATE DATABASE msf OWNER msf;"
 RUN psql -c "GRANT ALL ON msf TO msf;"
