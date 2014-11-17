@@ -4,7 +4,7 @@
 
 [https://github.com/KrustyHack/docker-metasploit][1]
 
-[https://registry.hub.docker.com/u/krustyhack/metasploit/][2]
+[https://registry.hub.docker.com/u/krustyhack/metasploit][2]
 
 ## Usage
 
@@ -14,3 +14,4 @@
 
 
   [1]: https://github.com/KrustyHack/docker-metasploit
+  [2]: [1]: https://registry.hub.docker.com/u/krustyhack/metasploit
