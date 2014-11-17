@@ -43,4 +43,4 @@ RUN bash -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/da
 
 VOLUME ["/usr/share/metasploit-framework"]
 
-CMD /usr/bin/supervisord && service metasploit start && msfconsole
+CMD /usr/bin/supervisord && msfconsole
